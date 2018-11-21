@@ -19,6 +19,11 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'list'
     }
   ];
 
@@ -32,6 +37,23 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      console.log(window);
+      
+      (<any>window).plugins.ADEUMMobilePlugin.initWithConfiguration(
+        {
+           "appKey": "AD-AAB-AAM-YEA",
+           "collectorUrl": "https://eum-col.appdynamics.com",
+           "screenshotUrl": "https://eum-image.appdynamics.com",
+           "screenshots": true,
+           "loggingLevel": 4  
+         },
+         (success) => {
+            console.log("initWithConfiguration return: success");
+         },
+         (error) => {
+            console.error("initWithConfiguration error:" + error);
+         }
+    ); 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

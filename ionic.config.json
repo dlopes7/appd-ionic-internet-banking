@@ -1,5 +1,7 @@
 {
   "name": "appd-internet-banking",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
